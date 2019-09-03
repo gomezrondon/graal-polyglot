@@ -13,4 +13,4 @@ public class Main {
         System.out.println("test----------------");
     }
 }
- // java -jar polyglot.jar
+ // time java -jar polyglot.jar
