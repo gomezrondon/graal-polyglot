@@ -3,9 +3,13 @@ import org.graalvm.polyglot.*;
 public class Main {
     public static void main(String[] args) {
         Context context = Context.newBuilder().allowIO(true).build();
-        Value array = context.eval("python", "[1,2,42,4]");
-        int result = array.getArrayElement(2).asInt();
-        System.out.println(result);
+        String script = "import time\n" +
+                "start_before = time.time()\n" +
+                "print(start_before)\n" +
+                "\"-\".join(str(n) for n in range(100))";
+        Value array = context.eval("python", script);
+
+        System.out.println(array);
         System.out.println("test----------------");
     }
 }
